@@ -1,40 +1,56 @@
 import React from 'react'
-import ParticleHero from './components/ParticleHero.jsx'
+import { Canvas } from '@react-three/fiber'
+import { Points, PointMaterial } from '@react-three/drei'
+import * as THREE from 'three'
 
-export default function App(){
-  return (<>
-    <header>
-      <div className="nav">
-        <div className="brand"><div className="badge">WX</div><div><div style={{fontWeight:900}}>WEB X</div><div style={{opacity:.7, marginTop:-2}}>— Studios</div></div></div>
-        <a href="#">Services</a><a href="#">Méthode</a><a href="#">Projets</a><a href="#" className="btn">Devis rapide</a>
+function Stars() {
+  const count = 2000
+  const positions = React.useMemo(() => {
+    const arr = new Float32Array(count * 3)
+    for (let i = 0; i < count * 3; i += 3) {
+      arr[i] = (Math.random() - 0.5) * 12
+      arr[i + 1] = (Math.random() - 0.5) * 12
+      arr[i + 2] = (Math.random() - 0.5) * 12
+    }
+    return arr
+  }, [])
+  const geom = React.useMemo(() => {
+    const g = new THREE.BufferGeometry()
+    g.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    return g
+  }, [positions])
+
+  return (
+    <Points geometry={geom}>
+      <PointMaterial size={0.025} sizeAttenuation transparent color="#ffffff" opacity={0.75} />
+    </Points>
+  )
+}
+
+export default function App() {
+  return (
+    <div style={{minHeight:'100vh', position:'relative', overflow:'hidden'}}>
+      <div style={{position:'absolute', inset:0, pointerEvents:'none'}}>
+        <Canvas camera={{ position: [0,0,4] }}>
+          <ambientLight intensity={0.4} />
+          <Stars />
+        </Canvas>
       </div>
-    </header>
-
-    {/* HERO FULLSCREEN: only the particle cloud + hint */}
-    <section className="hero">
-      <div className="canvas-wrap"><ParticleHero/></div>
-      <div className="hint">Défilez pour morph <b>Énergie ⇄ Humanoïde</b></div>
-    </section>
-
-    {/* CONTENT appears AFTER the morph section */}
-    <section>
-      <div className="container">
-        <h1>Créons votre <span className="gradient">univers web</span> immersif</h1>
-        <p className="lead">Sites vitrines modernes ou expériences <b>3D/WebGL</b> avec interactions. Design soigné et performances au rendez-vous.</p>
-        <div style={{display:'flex', gap:14, marginTop:18, flexWrap:'wrap'}}>
-          <a className="btn primary" href="#">Voir des démos</a>
-          <a className="btn" href="#">Parler de votre projet</a>
+      <header style={{padding:'24px 20px', position:'relative', zIndex:1}}>
+        <div style={{fontWeight:700, letterSpacing:1}}>WEB X</div>
+      </header>
+      <main style={{position:'relative', zIndex:1, padding:'72px 20px 120px 20px', maxWidth:960}}>
+        <h1 style={{fontSize:'40px', lineHeight:1.1, margin:'0 0 16px'}}>
+          Créons votre <span style={{background: 'linear-gradient(90deg,#74aaff,#c084fc)', WebkitBackgroundClip:'text', color:'transparent'}}>univers web</span> immersif
+        </h1>
+        <p style={{opacity:0.85, fontSize:18, maxWidth:760}}>
+          Sites vitrines modernes ou expériences 3D/WebGL avec interactions. Design soigné et performances au rendez‑vous.
+        </p>
+        <div style={{display:'flex', gap:12, marginTop:24}}>
+          <a href="#" style={{background:'linear-gradient(90deg,#74aaff,#c084fc)', padding:'12px 16px', borderRadius:'12px', color:'#0b0e13', textDecoration:'none', fontWeight:700}}>Voir des démos</a>
+          <a href="#" style={{padding:'12px 16px', borderRadius:'12px', color:'#e6e9f2', textDecoration:'none', border:'1px solid #2a2f3a'}}>Parler de votre projet</a>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div className="container">
-        <h2>Nos services</h2>
-        <p className="lead">3D/WebGL, sites vitrines premium, animations sur mesure, intégration e‑commerce, etc.</p>
-      </div>
-    </section>
-
-    <div className="footer"><div className="container">© WEB X — Studios</div></div>
-  </>)
+      </main>
+    </div>
+  )
 }
