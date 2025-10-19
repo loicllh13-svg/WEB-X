@@ -1,5 +1,12 @@
-export default function App(){return(<main style={{minHeight:'100vh',display:'grid',placeItems:'center'}}>
-<section style={{textAlign:'center',maxWidth:720}}>
-<h1 style={{fontSize:'clamp(32px,6vw,64px)',lineHeight:1.1,margin:0,background:'linear-gradient(90deg,#5cf,#90f)',WebkitBackgroundClip:'text',color:'transparent',fontWeight:800}}>GenZ — Studios</h1>
-<p style={{opacity:.9,marginTop:16}}>Projet React + Vite prêt pour Vercel (structure plate). Remplace ce contenu par ton site et pousse sur GitHub.</p>
-</section></main>);}
+import React from 'react'
+
+export default function App() {
+  return (
+    <main style={{minHeight:'100dvh',display:'grid',placeItems:'center'}}>
+      <div style={{maxWidth:820,padding:24,borderRadius:16,background:'rgba(255,255,255,0.03)',border:'1px solid rgba(255,255,255,0.08)'}}>
+        <h1 style={{margin:0,fontSize:48,lineHeight:1.1}}>Pipeline OK ✅</h1>
+        <p style={{opacity:.8}}>Si vous voyez cette page sur Vercel, la build est <strong>bonne</strong>. On remplacera ensuite ce contenu par votre site.</p>
+      </div>
+    </main>
+  )
+}
