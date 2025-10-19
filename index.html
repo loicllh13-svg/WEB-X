@@ -3,62 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WEB X — Studios (Bleu/Violet)</title>
-  <meta name="description" content="WEB X — Studios (Bleu/Violet) — sites vitrines modernes ou expériences 3D/WebGL avec interactions.">
+  <title>WEB X — Sites 3D & immersifs</title>
+  <meta name="description" content="WEB X conçoit des sites web 3D ou non, avec des expériences immersives et interactives.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/styles.css">
-  
 </head>
 <body>
 <header class="nav">
-  <div class="brand">
+  <a class="brand" href="#top">
     <span class="logo">WX</span>
-    <span>WEB X — Studios</span>
-  </div>
-  <a class="chip" href="#contact">Devis rapide</a>
+    <span class="brand-text">WEB X — Studios</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#portfolio">Projets</a>
+    <a class="cta" href="mailto:contact@webx.studio">Devis par e‑mail</a>
+  </nav>
 </header>
 
-
-<main class="hero">
-  <div class="hero__content">
-    <h1>Créons votre<br><span class="grad">univers web</span><br><span class="grad">immersif</span></h1>
-    <p class="sub">Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions.</p>
-    <div class="cta">
-      <a class="btn primary" href="#demos">Voir des démos</a>
-      <a class="btn ghost" href="#contact">Parler de votre projet</a>
+<main class="hero" id="top" aria-label="Haut de page">
+  <canvas id="hero3d"></canvas>
+  <section class="hero-content">
+    <h1>
+      <span>Des sites</span>
+      <span class="grad">3D & immersifs</span>
+      <span>qui marquent les esprits</span>
+    </h1>
+    <p class="lead">
+      WEB X conçoit des sites <strong>3D/WebGL</strong> ou classiques haut de gamme, avec des
+      interactions fluides, un design soigné et des performances au rendez‑vous.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="mailto:contact@webx.studio">Parler de votre projet</a>
+      <a class="btn ghost" href="#services">Voir les services</a>
     </div>
     <ul class="badges">
-      <li class="badge">Performant</li>
-      <li class="badge">Sécurisé</li>
-      <li class="badge">Responsive</li>
+      <li><img src="./assets/bolt.svg" alt=""> Performances optimisées</li>
+      <li><img src="./assets/vr.svg" alt=""> 3D temps réel (WebGL)</li>
+      <li><img src="./assets/shield.svg" alt=""> Fiable & sécurisé</li>
+      <li><img src="./assets/grid.svg" alt=""> 100% responsive</li>
     </ul>
-  </div>
-  <div class="orbs" aria-hidden="true">
-    <div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div>
-  </div>
+  </section>
 </main>
 
-
-<section id="demos" class="cards">
-  <article class="card">
-    <div class="pill">Concept</div>
-    <h3>Neo Café</h3>
-    <p>Maquette immersive</p>
-  </article>
-  <article class="card">
-    <div class="pill">Concept</div>
-    <h3>Dentiste Lumière</h3>
-    <p>Maquette immersive</p>
-  </article>
+<section id="services" class="section">
+  <header class="section-head">
+    <h2>Nos services</h2>
+    <p>Chaque projet est réalisé sur mesure. Les tarifs se font <strong>sur devis uniquement</strong>.</p>
+  </header>
+  <div class="cards">
+    <article class="card"><div class="pill">3D / WebGL</div><h3>Sites 3D temps réel</h3><p>Expériences interactives, scènes animées, transitions immersives.</p></article>
+    <article class="card"><div class="pill">Premium</div><h3>Sites haut de gamme</h3><p>Design moderne, micro‑interactions, SEO et performances.</p></article>
+    <article class="card"><div class="pill">Immersion</div><h3>Expériences interactives</h3><p>Storytelling, effets visuels, pages événementielles.</p></article>
+  </div>
 </section>
 
-<footer id="contact" class="footer">
-  <h4>Parlons de votre projet</h4>
-  <p>Décrivez vos objectifs, nous revenons avec une proposition claire et un tarif fixe.</p>
-  <a class="btn primary" href="mailto:contact@webx.studio">contact@webx.studio</a>
-  <small>© WEB X — Studios</small>
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <h3>Contact par e‑mail</h3>
+    <a class="btn primary" href="mailto:contact@webx.studio">contact@webx.studio</a>
+    <small>© WEB X — Studios</small>
+  </div>
 </footer>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="./scripts/hero3d.js"></script>
 </body>
 </html>
