@@ -5,67 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WEB X — Studios</title>
     <style>
-      :root { --bg:#0b0e14; --fg:#e0e6f1; --muted:#8ea2c8; }
-      * { box-sizing: border-box; }
-      html,body,#root { height:100%; }
-      body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--fg); }
-      a { color:#9ec5ff; text-decoration:none; }
-      .nav { position:fixed; top:0; left:0; right:0; padding:14px 18px; display:flex; gap:18px; align-items:center; backdrop-filter:saturate(150%) blur(8px); background: rgba(11,14,20,.5); border-bottom:1px solid rgba(255,255,255,.06); z-index:10;}
-      .brand { font-weight:800; letter-spacing:.04em; }
-      .tag { font-weight:600; opacity:.85; }
-      .hero { min-height:100svh; position:relative; display:flex; align-items:center; }
-      .hero .copy { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:clamp(16px,5vw,64px); pointer-events:none; }
-      h1 { font-size: clamp(32px, 6vw, 72px); line-height:1.05; margin:0 0 16px 0;}
-      p.lead { color:var(--muted); font-size: clamp(16px, 2.6vw, 20px); max-width: 58ch; }
-      .cta { display:flex; gap:12px; margin-top:24px; pointer-events:auto; }
-      .btn { border:1px solid rgba(255,255,255,.12); padding:12px 18px; border-radius:12px; background:rgba(255,255,255,.02); color:var(--fg); font-weight:600; }
-      .btn.primary{ background:linear-gradient(90deg,#6ea8fe,#b18cff); border-color:transparent; color:#0c1020; }
-      .section { padding:80px 20px; max-width:1100px; margin:0 auto; }
-      .badge { display:inline-flex; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.06); margin-top:16px; }
-      canvas.webgl { position:absolute; inset:0; width:100%; height:100%; }
-      .hint { position:absolute; top:64px; left:16px; font-weight:700; color:#d8e1ff; text-shadow:0 2px 8px rgba(0,0,0,.6); }
-      .spacer { height:160svh; } /* space to scroll to morph */
-      footer { text-align:center; color:#9bb0d0; padding:48px 0; }
+      html, body { height: 100%; margin: 0; background: #0b0d12; color: #dfe7ff; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+      #app { position: fixed; inset: 0; }
+      .hero {
+        position: relative; z-index: 5; width: 100%; box-sizing: border-box;
+        padding: 96px 20px 64px; max-width: 1100px; margin: 0 auto;
+      }
+      .title { font-size: clamp(32px, 6vw, 64px); line-height: 1.05; font-weight: 800; letter-spacing: 0.2px; }
+      .grad { background: linear-gradient(90deg,#87f0ff,#b9a6ff,#ffd36e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .sub { margin-top: 16px; opacity: .9; max-width: 720px; font-size: clamp(16px, 2.6vw, 20px); }
+      .chips { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+      .chip { padding: 10px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(255,255,255,.04); backdrop-filter: blur(6px); }
+      .hint { position: fixed; top: 14px; left: 16px; z-index: 10; font-weight: 600; opacity: .9; }
+      .spacer { height: 260vh; } /* for scroll */
+      a.btn { display:inline-block; margin-top:24px; padding:14px 18px; border-radius:12px; background: linear-gradient(135deg,#7aa7ff,#b78bff); color:#0b0d12; font-weight:700; text-decoration:none; }
     </style>
   </head>
   <body>
-    <div class="nav">
-      <div class="brand">WEB X <span class="tag">— Studios</span></div>
-      <div style="flex:1"></div>
-      <a href="#services">Services</a>
-      <a href="#method">Méthode</a>
-      <a href="#projects">Projets</a>
-      <a href="#contact">Devis rapide</a>
-    </div>
-
-    <div class="hero">
-      <div id="canvas-root"></div>
-      <div class="copy">
-        <div class="hint">Défilez pour morph <strong>Énergie</strong> ⇄ <strong>Humanoïde</strong></div>
-        <h1>Créons votre univers <span style="background:linear-gradient(90deg,#78b8ff,#c39cff);-webkit-background-clip:text;background-clip:text;color:transparent;">web immersif</span></h1>
-        <p class="lead">Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions. Design soigné et performances au rendez-vous.</p>
-        <div class="cta">
-          <a class="btn primary" href="#demos">Voir des démos</a>
-          <a class="btn" href="#contact">Parler de votre projet</a>
-        </div>
-        <div class="badge">
-          <span>Performant</span><span>•</span><span>Sécurisé</span><span>•</span><span>Responsive</span>
-        </div>
+    <div class="hint">Défilez pour morph <strong>Énergie</strong> ⇄ <strong>Humanoïde</strong></div>
+    <div id="app"></div>
+    <main class="hero">
+      <h1 class="title">Créons votre <span class="grad">univers web</span> immersif</h1>
+      <p class="sub">Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions. Design soigné et performances au rendez‑vous.</p>
+      <a class="btn" href="#">Voir des démos</a>
+      <div class="chips">
+        <div class="chip">Performant</div>
+        <div class="chip">Sécurisé</div>
+        <div class="chip">Responsive</div>
       </div>
-    </div>
-
-    <div class="section spacer" id="demos">
-      <h2>Nos services</h2>
-      <p>Chaque projet est réalisé sur mesure. 3D temps réel (WebGL), interactions fluides et SEO-friendly.</p>
-    </div>
-
-    <div class="section" id="services">
-      <h3>Design & Dév</h3>
-      <p>Landing pages animées, expériences 3D, configurateurs produits, etc.</p>
-    </div>
-
-    <footer>© WEB X — Studios</footer>
-
-    <script type="module" src="/src/main.jsx"></script>
+    </main>
+    <div class="spacer"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
