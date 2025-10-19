@@ -1,10 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#28a9ff"/>
-      <stop offset="1" stop-color="#a24dff"/>
-    </linearGradient>
-  </defs>
-  <circle cx="32" cy="32" r="30" fill="#0b0f17"/>
-  <path d="M18 38l10-20 6 12 12-6-10 20-6-12-12 6z" fill="url(#g)" />
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+    <stop stop-color="#6AA8FF"/><stop offset="1" stop-color="#B38CFF"/>
+  </linearGradient></defs>
+  <rect width="64" height="64" rx="12" fill="url(#g)"/>
+  <text x="50%" y="55%" text-anchor="middle" font-size="28" font-family="Arial" font-weight="800" fill="#0B0F1A">WX</text>
 </svg>
