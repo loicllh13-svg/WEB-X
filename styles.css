@@ -1,0 +1,38 @@
+:root{
+  --bg: #05070c;
+  --card: #0b0f17;
+  --text: #cdd3df;
+  --muted: #8a90a3;
+  --brand1: #28a9ff;
+  --brand2: #a24dff;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:radial-gradient(1200px 800px at 70% 10%, rgba(40,169,255,0.08), rgba(162,77,255,0.04) 35%, transparent 70%), var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none}
+.logoBadge{width:36px;height:36px;border-radius:999px;background:linear-gradient(135deg,var(--brand1),var(--brand2));display:grid;place-items:center;color:#0b0f17;font-weight:800}
+.cta{padding:10px 16px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.02);backdrop-filter: blur(6px);color:var(--text);text-decoration:none}
+h1{font-size:clamp(40px,7.5vw,72px);line-height:1.05;margin:0 0 24px;font-weight:800;letter-spacing:-0.02em}
+.grad{background:linear-gradient(90deg,var(--brand1),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+p.lead{max-width:720px;color:var(--muted);font-size:18px;margin:0 0 28px}
+.btnRow{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0b0f17;color:var(--text);text-decoration:none}
+.btn.outline{background:transparent}
+.features{display:flex;gap:24px;align-items:center;margin-top:28px;color:#a9b3c6;font-size:14px;opacity:.9;flex-wrap:wrap}
+.badge{display:flex;gap:8px;align-items:center}
+.icon{width:22px;height:22px}
+.icon path{fill:url(#grad);}
+svg defs linearGradient stop:nth-child(1){stop-color:var(--brand1)}
+svg defs linearGradient stop:nth-child(2){stop-color:var(--brand2)}
+
+.card{
+  margin-top:44px;
+  width:min(680px,95%);
+  height:200px;
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.03);
+}
