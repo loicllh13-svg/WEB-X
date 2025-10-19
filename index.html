@@ -1,42 +1,70 @@
-
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WEB X — Studios</title>
-    <meta name="description" content="Sites 3D/WebGL immersifs avec interactions." />
-    <style>
-      :root{--bg:#0b0e14;--card:#0f1320;--muted:#9aa4b2;--text:#e8ecf1;--grad1:#6ec1ff;--grad2:#b388ff}
-      *{box-sizing:border-box}
-      html,body,#root{height:100%}
-      body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,rgba(110,193,255,.15),transparent),
-                    radial-gradient(1200px 600px at 80% 0,rgba(179,136,255,.12),transparent),var(--bg);
-           color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-      a{color:inherit;text-decoration:none}
-      .container{max-width:1100px;margin:0 auto;padding:24px}
-      header{display:flex;align-items:center;gap:12px;padding:12px 0}
-      .logo{width:36px;height:36px;border-radius:999px;background:linear-gradient(135deg,var(--grad1),var(--grad2));
-            display:grid;place-items:center;font-weight:800}
-      nav{margin-left:auto;display:flex;gap:18px;color:var(--muted)}
-      .hero{position:relative;min-height:92vh;display:grid;align-items:center}
-      .title{font-size: clamp(32px,6vw,64px);line-height:1.05;margin:0 0 12px 0}
-      .subtitle{color:var(--muted);max-width:680px}
-      .cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
-      .btn{padding:10px 16px;border-radius:12px;border:1px solid #2b3244;background:#101523;color:#e8ecf1}
-      .btn.primary{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#0b0e14;border:0;font-weight:700}
-      .chips{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
-      .chip{padding:8px 12px;border:1px solid #2b3244;border-radius:999px;color:#cbd5e1;background:#0f1320}
-      canvas.webgl{position:absolute;inset:0;z-index:0}
-      .hero-content{position:relative;z-index:1;padding-top:60px}
-      section{padding:80px 0;border-top:1px solid #1b2131;background:linear-gradient(180deg,transparent,#0b0e1400)}
-      h2{font-size:28px;margin:0 0 16px 0}
-      footer{padding:40px 0;color:#94a3b8;border-top:1px solid #1b2131}
-      .hint{position:absolute;top:10px;left:10px;color:#cbd5e1;font-weight:600;opacity:.9}
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WEB X — Studios</title>
+  <meta name="description" content="Sites vitrines modernes ou expériences 3D/WebGL avec interactions. Design soigné et performances au rendez-vous."/>
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Three.js via CDN (no build needed) -->
+  <script defer src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script defer src="/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="badge">WX</span> <strong>WEB X</strong> — Studios</div>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#methode">Méthode</a>
+      <a href="#projets">Projets</a>
+      <a class="cta" href="mailto:contact@webx.example">Devis rapide</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hint">Défilez pour morph <b>Énergie ⇄ Humanoïde</b></div>
+    <canvas id="hero-canvas" aria-label="Animation de particules"></canvas>
+    <div class="hero-copy">
+      <h1>Créons votre <span class="accent">univers web</span> immersif</h1>
+      <p>Sites vitrines modernes ou expériences <b>3D/WebGL</b> avec interactions. Design soigné et performances au rendez-vous.</p>
+      <div class="actions">
+        <a class="btn primary" href="#demos">Voir des démos</a>
+        <a class="btn ghost" href="mailto:contact@webx.example">Parler de votre projet</a>
+      </div>
+      <div class="chips">
+        <span>Performant</span><span>Sécurisé</span><span>Responsive</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="content">
+    <section id="services">
+      <h2>Nos services</h2>
+      <p>Chaque projet est réalisé sur mesure. Les tarifs se font sur devis uniquement.</p>
+      <ul class="grid">
+        <li><h3>3D / WebGL</h3><p>Expériences en temps réel optimisées mobile & desktop.</p></li>
+        <li><h3>Sites vitrines</h3><p>Design haut de gamme, animations fluides.</p></li>
+        <li><h3>Intégrations</h3><p>CRM, analytics, formulaires, SEO technique.</p></li>
+      </ul>
+    </section>
+
+    <section id="methode">
+      <h2>Méthode</h2>
+      <ol class="steps">
+        <li>Brief & objectifs</li>
+        <li>Prototype & visuels</li>
+        <li>Développement</li>
+        <li>Tests & performance</li>
+        <li>Lancement & suivi</li>
+      </ol>
+    </section>
+
+    <section id="projets">
+      <h2>Projets</h2>
+      <p>Exemples à venir.</p>
+    </section>
+  </main>
+
+  <footer class="footer">© WEB X — Studios</footer>
+</body>
 </html>
