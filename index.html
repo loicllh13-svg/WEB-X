@@ -4,94 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WEB X — Studios</title>
-    <meta name="description" content="Sites 3D/WebGL & expériences immersives."/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-      :root {
-        --bg: #0b0f14;
-        --ink: #dbe4ff;
-        --muted: #9aa4b2;
-        --accent1: #6ea8fe;
-        --accent2: #b197fc;
-      }
+      :root { --bg:#0b0e14; --fg:#e0e6f1; --muted:#8ea2c8; }
       * { box-sizing: border-box; }
-      html, body { height: 100%; }
-      body {
-        margin: 0;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        color: var(--ink);
-        background: radial-gradient(1200px 800px at 20% -10%, #152033 0%, #0b0f14 60%),
-                    radial-gradient(1000px 700px at 100% 10%, #1a1433 0%, #0b0f14 60%);
-        overflow-x: hidden;
-      }
-      header {
-        display:flex; align-items:center; gap:14px;
-        padding:18px 20px; position: sticky; top:0; z-index: 10;
-        background: linear-gradient(to bottom, rgba(11,15,20,.85), rgba(11,15,20,0));
-        -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-      }
-      .logo { width:36px; height:36px; border-radius:50%; background:#243042; display:grid; place-items:center; font-weight:800; }
-      nav a { color: var(--muted); text-decoration:none; margin: 0 10px; font-weight:600; }
-      nav a:hover { color: var(--ink); }
-      .hero {
-        min-height: 86vh; display:grid; align-items:center;
-        padding: 40px 20px; position: relative;
-      }
-      h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.06; margin: 0 0 16px; }
-      .grad { background: linear-gradient(90deg, var(--accent1), var(--accent2)); -webkit-background-clip:text; background-clip:text; color: transparent; }
-      p { color: var(--muted); font-size: clamp(16px, 2.3vw, 18px); max-width: 720px; }
-      .cta { display:flex; gap:12px; margin:20px 0 4px; flex-wrap: wrap; }
-      .btn {
-        padding: 12px 18px; border-radius: 12px; border:1px solid #2b3343;
-        background: #121826; color: var(--ink); font-weight:700; text-decoration:none;
-      }
-      .btn.primary { background: linear-gradient(90deg, var(--accent1), var(--accent2)); color:#0b0f14; border:0; }
-      .chips { display:flex; gap:12px; margin-top: 16px; flex-wrap: wrap; }
-      .chip { padding:8px 12px; border:1px solid #263248; border-radius:999px; color:#c7d2fe; font-weight:600; font-size:14px;}
-      /* Canvas */
-      #fx {
-        position:absolute; inset:0; z-index:0;
-      }
-      .overlay { position:relative; z-index:1; }
-      footer { color:#7f8ea3; padding: 40px 20px; border-top:1px solid #1a2536; }
+      html,body,#root { height:100%; }
+      body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--fg); }
+      a { color:#9ec5ff; text-decoration:none; }
+      .nav { position:fixed; top:0; left:0; right:0; padding:14px 18px; display:flex; gap:18px; align-items:center; backdrop-filter:saturate(150%) blur(8px); background: rgba(11,14,20,.5); border-bottom:1px solid rgba(255,255,255,.06); z-index:10;}
+      .brand { font-weight:800; letter-spacing:.04em; }
+      .tag { font-weight:600; opacity:.85; }
+      .hero { min-height:100svh; position:relative; display:flex; align-items:center; }
+      .hero .copy { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:clamp(16px,5vw,64px); pointer-events:none; }
+      h1 { font-size: clamp(32px, 6vw, 72px); line-height:1.05; margin:0 0 16px 0;}
+      p.lead { color:var(--muted); font-size: clamp(16px, 2.6vw, 20px); max-width: 58ch; }
+      .cta { display:flex; gap:12px; margin-top:24px; pointer-events:auto; }
+      .btn { border:1px solid rgba(255,255,255,.12); padding:12px 18px; border-radius:12px; background:rgba(255,255,255,.02); color:var(--fg); font-weight:600; }
+      .btn.primary{ background:linear-gradient(90deg,#6ea8fe,#b18cff); border-color:transparent; color:#0c1020; }
+      .section { padding:80px 20px; max-width:1100px; margin:0 auto; }
+      .badge { display:inline-flex; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.06); margin-top:16px; }
+      canvas.webgl { position:absolute; inset:0; width:100%; height:100%; }
+      .hint { position:absolute; top:64px; left:16px; font-weight:700; color:#d8e1ff; text-shadow:0 2px 8px rgba(0,0,0,.6); }
+      .spacer { height:160svh; } /* space to scroll to morph */
+      footer { text-align:center; color:#9bb0d0; padding:48px 0; }
     </style>
   </head>
   <body>
-    <header class="overlay">
-      <div class="logo">WX</div>
-      <div style="font-weight:800">WEB X</div>
-      <nav aria-label="primary">
-        <a href="#">Services</a>
-        <a href="#">Méthode</a>
-        <a href="#">Projets</a>
-        <a href="#">Devis rapide</a>
-      </nav>
-    </header>
+    <div class="nav">
+      <div class="brand">WEB X <span class="tag">— Studios</span></div>
+      <div style="flex:1"></div>
+      <a href="#services">Services</a>
+      <a href="#method">Méthode</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Devis rapide</a>
+    </div>
 
-    <canvas id="fx" aria-hidden="true"></canvas>
-
-    <section class="hero overlay">
-      <div>
-        <div style="margin-bottom:10px;color:#b7c3d6;font-weight:700;">Défilez pour morph <span style="color:#fff">Énergie</span> ⇄ <span style="color:#fff">Humanoïde</span></div>
-        <h1>Créons votre <span class="grad">univers web</span> immersif</h1>
-        <p>Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions.
-           Design soigné et performances au rendez-vous.</p>
+    <div class="hero">
+      <div id="canvas-root"></div>
+      <div class="copy">
+        <div class="hint">Défilez pour morph <strong>Énergie</strong> ⇄ <strong>Humanoïde</strong></div>
+        <h1>Créons votre univers <span style="background:linear-gradient(90deg,#78b8ff,#c39cff);-webkit-background-clip:text;background-clip:text;color:transparent;">web immersif</span></h1>
+        <p class="lead">Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions. Design soigné et performances au rendez-vous.</p>
         <div class="cta">
-          <a class="btn primary" href="#">Voir des démos</a>
-          <a class="btn" href="#">Parler de votre projet</a>
+          <a class="btn primary" href="#demos">Voir des démos</a>
+          <a class="btn" href="#contact">Parler de votre projet</a>
         </div>
-        <div class="chips">
-          <span class="chip">Performant</span>
-          <span class="chip">Sécurisé</span>
-          <span class="chip">Responsive</span>
+        <div class="badge">
+          <span>Performant</span><span>•</span><span>Sécurisé</span><span>•</span><span>Responsive</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <footer class="overlay">© WEB X — Studios</footer>
+    <div class="section spacer" id="demos">
+      <h2>Nos services</h2>
+      <p>Chaque projet est réalisé sur mesure. 3D temps réel (WebGL), interactions fluides et SEO-friendly.</p>
+    </div>
 
-    <script type="module" src="/src/main.js"></script>
+    <div class="section" id="services">
+      <h3>Design & Dév</h3>
+      <p>Landing pages animées, expériences 3D, configurateurs produits, etc.</p>
+    </div>
+
+    <footer>© WEB X — Studios</footer>
+
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
