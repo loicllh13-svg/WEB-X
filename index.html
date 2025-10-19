@@ -1,75 +1,202 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WEB X — Sites 3D & immersifs</title>
-  <meta name="description" content="WEB X conçoit des sites web 3D ou non, avec des expériences immersives et interactives.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WEB X — Studios</title>
+<meta name="description" content="Sites vitrine modernes ou expériences 3D/WebGL immersives.">
+<style>
+  /* ---------- Reset / base ---------- */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+    color:#e9eef8;
+    background: radial-gradient(1200px 800px at 70% -10%, #1b2a44 0%, #0b1020 45%, #070a14 100%) #070a14;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  a{color:#a9c6ff; text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* ---------- Layout ---------- */
+  .wrap{position:relative; min-height:100vh; overflow:hidden}
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px; position:relative; z-index:2;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
+  .brand .logo{
+    width:34px; height:34px; border-radius:50%;
+    border:1.5px solid rgba(173,216,255,.35);
+    display:grid; place-items:center; font-weight:800;
+    color:#cfe6ff
+  }
+  nav{display:flex; gap:18px; font-size:15px; opacity:.92}
+  nav a{color:#cfe6ff}
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; z-index:2; padding:8vh 20px 12vh; max-width:1150px; margin:0 auto;
+    display:grid; grid-template-columns:1.1fr .9fr; gap:26px;
+  }
+  @media (max-width:900px){ .hero{grid-template-columns:1fr; padding-top:10vh} }
+  h1{
+    font-size: clamp(32px, 6vw, 64px);
+    line-height:1.02; margin:0 0 18px;
+    letter-spacing:-.02em;
+    background: linear-gradient(180deg,#e9f2ff 0%, #cfe6ff 35%, #9bc0ff 60%, #b387ff 100%);
+    -webkit-background-clip: text; background-clip:text; color:transparent;
+    text-shadow: 0 0 22px rgba(107,185,255,.18);
+  }
+  .lead{
+    font-size: clamp(16px, 2.2vw, 20px);
+    color:#cdd6ea; opacity:.95; margin-bottom:22px;
+  }
+  .badges{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+  .chip{
+    padding:8px 12px; font-size:13px; border-radius:999px;
+    border:1px solid rgba(173,216,255,.25); color:#cfe6ff; opacity:.9;
+    backdrop-filter: blur(6px);
+  }
+  .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+  .btn{
+    padding:12px 16px; border-radius:12px; font-weight:600; letter-spacing:.2px;
+    color:#0a0f1e; background:linear-gradient(90deg,#6cb6ff,#a25dff);
+    box-shadow:0 8px 24px rgba(105,140,255,.25);
+    border:none
+  }
+  .btn.ghost{
+    background:transparent; color:#cfe6ff; border:1px solid rgba(173,216,255,.35);
+    box-shadow:none
+  }
+  /* ---------- Canvas layer ---------- */
+  #fx{
+    position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.9;
+    filter: drop-shadow(0 0 10px rgba(120,180,255,.35));
+  }
+  /* ---------- Footer mini ---------- */
+  footer{z-index:2; position:relative; padding:22px 20px; color:#94a6c9; font-size:13px; text-align:center;}
+</style>
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#top">
-    <span class="logo">WX</span>
-    <span class="brand-text">WEB X — Studios</span>
-  </a>
-  <nav class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#portfolio">Projets</a>
-    <a class="cta" href="mailto:contact@webx.studio">Devis par e‑mail</a>
-  </nav>
-</header>
+<div class="wrap">
+  <canvas id="fx"></canvas>
 
-<main class="hero" id="top" aria-label="Haut de page">
-  <canvas id="hero3d"></canvas>
-  <section class="hero-content">
-    <h1>
-      <span>Des sites</span>
-      <span class="grad">3D & immersifs</span>
-      <span>qui marquent les esprits</span>
-    </h1>
-    <p class="lead">
-      WEB X conçoit des sites <strong>3D/WebGL</strong> ou classiques haut de gamme, avec des
-      interactions fluides, un design soigné et des performances au rendez‑vous.
-    </p>
-    <div class="hero-ctas">
-      <a class="btn primary" href="mailto:contact@webx.studio">Parler de votre projet</a>
-      <a class="btn ghost" href="#services">Voir les services</a>
-    </div>
-    <ul class="badges">
-      <li><img src="./assets/bolt.svg" alt=""> Performances optimisées</li>
-      <li><img src="./assets/vr.svg" alt=""> 3D temps réel (WebGL)</li>
-      <li><img src="./assets/shield.svg" alt=""> Fiable & sécurisé</li>
-      <li><img src="./assets/grid.svg" alt=""> 100% responsive</li>
-    </ul>
-  </section>
-</main>
-
-<section id="services" class="section">
-  <header class="section-head">
-    <h2>Nos services</h2>
-    <p>Chaque projet est réalisé sur mesure. Les tarifs se font <strong>sur devis uniquement</strong>.</p>
+  <header>
+    <div class="brand"><div class="logo">WX</div> WEB X — Studios</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#process">Méthode</a>
+      <a href="#work">Projets</a>
+      <a href="mailto:contact@example.com">Devis rapide</a>
+    </nav>
   </header>
-  <div class="cards">
-    <article class="card"><div class="pill">3D / WebGL</div><h3>Sites 3D temps réel</h3><p>Expériences interactives, scènes animées, transitions immersives.</p></article>
-    <article class="card"><div class="pill">Premium</div><h3>Sites haut de gamme</h3><p>Design moderne, micro‑interactions, SEO et performances.</p></article>
-    <article class="card"><div class="pill">Immersion</div><h3>Expériences interactives</h3><p>Storytelling, effets visuels, pages événementielles.</p></article>
-  </div>
-</section>
 
-<footer class="footer" id="contact">
-  <div class="footer-inner">
-    <h3>Contact par e‑mail</h3>
-    <a class="btn primary" href="mailto:contact@webx.studio">contact@webx.studio</a>
-    <small>© WEB X — Studios</small>
-  </div>
-</footer>
+  <section class="hero">
+    <div>
+      <h1>Créons votre univers web immersif</h1>
+      <p class="lead">Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions. Design soigné et performances au rendez‑vous.</p>
+      <div class="cta">
+        <a class="btn" href="#work">Voir des démos</a>
+        <a class="btn ghost" href="#contact">Parler de votre projet</a>
+      </div>
+      <div class="badges">
+        <span class="chip">Performant</span>
+        <span class="chip">Sécurisé</span>
+        <span class="chip">Responsive</span>
+      </div>
+    </div>
+  </section>
 
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="./scripts/hero3d.js"></script>
+  <footer>© WEB X — Studios</footer>
+</div>
+
+<!-- Three.js & effect -->
+<script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+<script>
+/* ====== Energy particles / orbits effect (no external assets) ====== */
+const canvas = document.getElementById('fx');
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(55, 2, 0.1, 100);
+camera.position.set(0,0,6);
+
+const resize = ()=>{
+  const w = canvas.clientWidth = window.innerWidth;
+  const h = canvas.clientHeight = window.innerHeight;
+  renderer.setSize(w,h,false);
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+};
+window.addEventListener('resize', resize); resize();
+
+// Gradient bg light
+const fog = new THREE.FogExp2(0x091022, 0.065);
+scene.fog = fog;
+
+// Particle system
+const geo = new THREE.BufferGeometry();
+const COUNT = 2600;
+const pos = new Float32Array(COUNT*3);
+const col = new Float32Array(COUNT*3);
+
+// Distribution: elongated “humanoid” cloud
+for(let i=0;i<COUNT;i++){
+  // base capsule
+  const angle = Math.random()*Math.PI*2;
+  const r = (Math.random()*0.75+0.15) * (Math.random()<0.6? 0.6:1.0);
+  const y = (Math.random()*2.4-1.2);
+  pos[i*3+0] = Math.cos(angle)*r*0.8;
+  pos[i*3+1] = y*1.2;
+  pos[i*3+2] = Math.sin(angle)*r*0.6;
+
+  // color blue → violet
+  const t = (y+1.2)/2.4;
+  const c1 = new THREE.Color(0x6cb6ff);
+  const c2 = new THREE.Color(0xa25dff);
+  const c = c1.lerp(c2, t);
+  col[i*3+0]=c.r; col[i*3+1]=c.g; col[i*3+2]=c.b;
+}
+geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+geo.setAttribute('color', new THREE.BufferAttribute(col,3));
+
+const mat = new THREE.PointsMaterial({
+  size: 0.015, vertexColors:true, transparent:true,
+  opacity:0.95, depthWrite:false
+});
+const points = new THREE.Points(geo,mat);
+scene.add(points);
+
+// Orbits (energy rings)
+const ringMat = new THREE.LineBasicMaterial({color:0xffd580, transparent:true, opacity:.55});
+function ring(r, tilt){
+  const g = new THREE.BufferGeometry();
+  const seg=120; const arr=new Float32Array(seg*3);
+  for(let i=0;i<seg;i++){
+    const a=i/seg*Math.PI*2;
+    arr[i*3]=Math.cos(a)*r;
+    arr[i*3+1]=Math.sin(a)*r*0.14;
+    arr[i*3+2]=Math.sin(a)*r*0.6;
+  }
+  g.setAttribute('position', new THREE.BufferAttribute(arr,3));
+  const l = new THREE.LineLoop(g, ringMat);
+  l.rotation.x=tilt; l.rotation.y=tilt*0.6;
+  return l;
+}
+const rings = [ring(1.2,.6), ring(1.8,1.1), ring(2.5,.35)];
+rings.forEach(r=>scene.add(r));
+
+// Animation
+let t=0;
+renderer.setAnimationLoop(()=>{
+  t+=0.008;
+  points.rotation.y = t*0.6;
+  rings[0].rotation.y = t*1.1;
+  rings[1].rotation.y = -t*.8;
+  rings[2].rotation.x = t*.7;
+  // subtle breathing
+  const s = 1 + Math.sin(t*1.5)*0.02;
+  points.scale.set(s,s,s);
+  renderer.render(scene,camera);
+});
+</script>
 </body>
 </html>
