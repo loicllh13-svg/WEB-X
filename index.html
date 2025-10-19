@@ -2,55 +2,46 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WEB X — Studios</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Three.js CDN (non-module for wide mobile support) -->
-  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
-  <script defer src="main.js"></script>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="nav">
-    <div class="brand">
-      <span class="logo">WX</span>
-      <span class="title">WEB X <em>— Studios</em></span>
-    </div>
+    <div class="brand"><span class="logo">WX</span><span class="sep">—</span> <strong>WEB X</strong> <em>Studios</em></div>
     <nav class="links">
-      <a href="#services">Services</a>
-      <a href="#methode">Méthode</a>
-      <a href="#projets">Projets</a>
-      <a href="mailto:contact@webx.example" class="cta">Devis rapide</a>
+      <a href="#">Services</a>
+      <a href="#">Méthode</a>
+      <a href="#">Projets</a>
+      <a href="#" class="pill">Devis rapide</a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-copy">
-      <h1>Créons votre <br /><span>univers web</span> immersif</h1>
-      <p>Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions. Design soigné et performances au rendez‑vous.</p>
-      <div class="actions">
-        <a href="#demos" class="btn primary">Voir des démos</a>
-        <a href="#contact" class="btn ghost">Parler de votre projet</a>
+  <main class="hero">
+    <div class="canvas-wrap">
+      <canvas id="scene"></canvas>
+    </div>
+    <div class="copy">
+      <p class="hint">Défilez pour morph <b>Énergie ⇄ Humanoïde</b></p>
+      <h1>Créons votre <span class="grad">univers web</span> immersif</h1>
+      <p class="lead">Sites vitrines modernes ou expériences <b>3D/WebGL</b> avec interactions. Design soigné et performances au rendez-vous.</p>
+      <div class="cta">
+        <a class="btn primary">Voir des démos</a>
+        <a class="btn ghost">Parler de votre projet</a>
       </div>
-      <div class="badges">
+      <div class="chips">
         <span>Performant</span><span>Sécurisé</span><span>Responsive</span>
       </div>
     </div>
-    <canvas id="scene"></canvas>
-    <div id="hint">Défilez pour morph <strong>Énergie ⇄ Humanoïde</strong></div>
-  </section>
+    <div class="spacer"></div>
+    <section class="section">
+      <h2>Nos services</h2>
+      <p>3D temps réel, animations WebGL, et interfaces immersives hautes performances.</p>
+    </section>
+    <div class="spacer"></div>
+  </main>
 
-  <!-- Filler content to enable scroll -->
-  <section class="content">
-    <h2 id="services">Nos services</h2>
-    <p>Sites 3D/WebGL, animations immersives, intégrations réactives, SEO technique, et plus.</p>
-    <h2 id="methode">Notre méthode</h2>
-    <p>Atelier, maquette, prototype, itérations rapides, mise en ligne, suivi des performances.</p>
-    <h2 id="projets">Projets</h2>
-    <p>Une sélection de projets sera présentée ici.</p>
-    <h2 id="contact">Contact</h2>
-    <p>Écrivez‑nous pour discuter de votre projet.</p>
-    <footer>© WEB X — Studios</footer>
-  </section>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
