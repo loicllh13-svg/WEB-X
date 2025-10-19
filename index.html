@@ -1,12 +1,69 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GenZ — Smoketest</title>
-  </head>
-  <body style="margin:0;background:#0b0b0f;color:#eaeaf2;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WEB X — Studios</title>
+  <meta name="description" content="Sites vitrines modernes ou expériences 3D/WebGL avec interactions. WEB X — Studios.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="brand">
+    <img src="./assets/logo.svg" alt="WEB X logo" class="logo"/>
+    <span>WEB X — Studios</span>
+  </div>
+  <a class="chip" href="#contact">Devis rapide</a>
+</header>
+
+<main class="hero">
+  <div class="hero__content">
+    <h1>
+      <span>Créons votre</span>
+      <span class="grad">univers web</span>
+      <span class="grad grad-2">immersif</span>
+    </h1>
+    <p class="sub">
+      Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#demos">Voir des démos</a>
+      <a class="btn ghost" href="#contact">Parler de votre projet</a>
+    </div>
+    <ul class="badges">
+      <li><img src="./assets/bolt.svg" alt=""> Performant</li>
+      <li><img src="./assets/shield.svg" alt=""> Sécurisé</li>
+      <li><img src="./assets/grid.svg" alt=""> Responsive</li>
+    </ul>
+  </div>
+  <div class="orbs" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+</main>
+
+<section id="demos" class="cards">
+  <article class="card">
+    <div class="pill">Concept</div>
+    <h3>Neo Café</h3>
+    <p>Maquette immersive</p>
+  </article>
+  <article class="card">
+    <div class="pill">Concept</div>
+    <h3>Dentiste Lumière</h3>
+    <p>Maquette immersive</p>
+  </article>
+</section>
+
+<footer id="contact" class="footer">
+  <h4>Parlons de votre projet</h4>
+  <p>Décrivez vos objectifs, nous revenons avec une proposition claire et un tarif fixe.</p>
+  <a class="btn primary" href="mailto:contact@webx.studio">contact@webx.studio</a>
+  <small>© WEB X — Studios</small>
+</footer>
+</body>
 </html>
