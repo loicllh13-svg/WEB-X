@@ -1,38 +1,29 @@
+
 :root{
-  --bg: #05070c;
-  --card: #0b0f17;
-  --text: #cdd3df;
-  --muted: #8a90a3;
-  --brand1: #28a9ff;
-  --brand2: #a24dff;
+  --bg:#0b0b0f;
+  --card:#11121a;
+  --text:#e9eef7;
+  --muted:#9aa3b2;
+  --accent1:#4cc2ff;
+  --accent2:#a770ff;
 }
 *{box-sizing:border-box}
 html,body,#root{height:100%}
-body{margin:0;background:radial-gradient(1200px 800px at 70% 10%, rgba(40,169,255,0.08), rgba(162,77,255,0.04) 35%, transparent 70%), var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;}
-.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
-.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none}
-.logoBadge{width:36px;height:36px;border-radius:999px;background:linear-gradient(135deg,var(--brand1),var(--brand2));display:grid;place-items:center;color:#0b0f17;font-weight:800}
-.cta{padding:10px 16px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.02);backdrop-filter: blur(6px);color:var(--text);text-decoration:none}
-h1{font-size:clamp(40px,7.5vw,72px);line-height:1.05;margin:0 0 24px;font-weight:800;letter-spacing:-0.02em}
-.grad{background:linear-gradient(90deg,var(--brand1),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
-p.lead{max-width:720px;color:var(--muted);font-size:18px;margin:0 0 28px}
-.btnRow{display:flex;gap:14px;flex-wrap:wrap}
-.btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0b0f17;color:var(--text);text-decoration:none}
-.btn.outline{background:transparent}
-.features{display:flex;gap:24px;align-items:center;margin-top:28px;color:#a9b3c6;font-size:14px;opacity:.9;flex-wrap:wrap}
+body{margin:0;background:radial-gradient(60% 50% at 20% 10%, #0f1320, var(--bg));color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Apple Color Emoji,Segoe UI Emoji}
+.header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;position:sticky;top:0;background:linear-gradient(180deg, rgba(11,11,15,.9) 0%, rgba(11,11,15,.4) 100%);backdrop-filter:blur(8px);border-bottom:1px solid #191b24}
+.logo{display:flex;gap:10px;align-items:center;font-weight:700}
+.logo-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));box-shadow:0 0 40px rgba(120,130,255,.35)}
+.cta{padding:10px 14px;border:1px solid #2a2f3a;border-radius:14px;background:#0c0d13;color:var(--text);text-decoration:none;font-weight:600}
+.hero{max-width:1080px;margin:56px auto;padding:0 20px}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.02;margin:0 0 20px}
+.gradient{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(132,110,255,.25))}
+p.lead{color:var(--muted);font-size:18px;max-width:760px}
+.btns{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:12px 16px;border-radius:14px;font-weight:700;text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#081018}
+.btn.secondary{border:1px solid #2a2f3a}
+.badges{display:flex;gap:18px;margin-top:26px;color:#c9d2e0;opacity:.8;align-items:center;flex-wrap:wrap}
 .badge{display:flex;gap:8px;align-items:center}
-.icon{width:22px;height:22px}
-.icon path{fill:url(#grad);}
-svg defs linearGradient stop:nth-child(1){stop-color:var(--brand1)}
-svg defs linearGradient stop:nth-child(2){stop-color:var(--brand2)}
-
-.card{
-  margin-top:44px;
-  width:min(680px,95%);
-  height:200px;
-  border-radius:20px;
-  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.03);
-}
+.icon{width:18px;height:18px;display:inline-block;border-radius:5px;background:linear-gradient(135deg,var(--accent1),var(--accent2))}
+.card{margin-top:40px;padding:20px;border:1px solid #222533;border-radius:16px;background:var(--card)}
+.footer{padding:30px 20px;color:#80879a;text-align:center}
