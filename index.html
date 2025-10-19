@@ -1,47 +1,13 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WEB X — Studios</title>
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="nav">
-    <div class="brand"><span class="logo">WX</span><span class="sep">—</span> <strong>WEB X</strong> <em>Studios</em></div>
-    <nav class="links">
-      <a href="#">Services</a>
-      <a href="#">Méthode</a>
-      <a href="#">Projets</a>
-      <a href="#" class="pill">Devis rapide</a>
-    </nav>
-  </header>
-
-  <main class="hero">
-    <div class="canvas-wrap">
-      <canvas id="scene"></canvas>
-    </div>
-    <div class="copy">
-      <p class="hint">Défilez pour morph <b>Énergie ⇄ Humanoïde</b></p>
-      <h1>Créons votre <span class="grad">univers web</span> immersif</h1>
-      <p class="lead">Sites vitrines modernes ou expériences <b>3D/WebGL</b> avec interactions. Design soigné et performances au rendez-vous.</p>
-      <div class="cta">
-        <a class="btn primary">Voir des démos</a>
-        <a class="btn ghost">Parler de votre projet</a>
-      </div>
-      <div class="chips">
-        <span>Performant</span><span>Sécurisé</span><span>Responsive</span>
-      </div>
-    </div>
-    <div class="spacer"></div>
-    <section class="section">
-      <h2>Nos services</h2>
-      <p>3D temps réel, animations WebGL, et interfaces immersives hautes performances.</p>
-    </section>
-    <div class="spacer"></div>
-  </main>
-
-  <script type="module" src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB X — Studios</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

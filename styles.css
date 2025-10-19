@@ -1,28 +1,22 @@
-*{box-sizing:border-box}html,body{height:100%;background:#0b0f16;color:#cfd7ff;margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
-a{color:#cfe2ff;text-decoration:none}
-.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:linear-gradient(180deg,rgba(7,10,16,.9),rgba(7,10,16,.7) 60%,transparent)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:600}
-.logo{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;background:linear-gradient(135deg,#4ea1ff,#b574ff);font-weight:800}
-.sep{opacity:.4}
-.links{display:flex;gap:18px;align-items:center}
-.links a{opacity:.85}
-.pill{padding:.45rem .75rem;border:1px solid rgba(207,215,255,.2);border-radius:999px;backdrop-filter:blur(6px)}
-.hero{position:relative;min-height:110svh;overflow-x:hidden}
-.canvas-wrap{position:absolute;inset:0;z-index:0}
-#scene{width:100%;height:100%;display:block}
-.copy{position:relative;z-index:5;max-width:960px;margin:12svh 16px 0}
-h1{font-size:clamp(30px,6vw,68px);line-height:1.05;margin:.25em 0 .25em;font-weight:800;letter-spacing:.3px;color:#e6ebff}
-.grad{background:linear-gradient(90deg,#4ea1ff,#b574ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{max-width:760px;opacity:.9;font-size:clamp(16px,2.6vw,20px)}
-.hint{opacity:.7;margin:2px 0 10px}
-.cta{display:flex;gap:12px;margin:18px 0 8px}
-.btn{border:1px solid rgba(210,220,255,.18);padding:.9rem 1.1rem;border-radius:14px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
-.primary{background:linear-gradient(90deg,#5aa5ff,#b077ff);color:#0d1220;border-color:transparent;font-weight:700}
-.ghost{background:rgba(17,21,32,.6)}
-.chips{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
-.chips span{border:1px solid rgba(210,220,255,.18);padding:.5rem .8rem;border-radius:999px;opacity:.9}
-.section{position:relative;z-index:5;padding:0 16px}
-h2{font-size:clamp(22px,4.4vw,36px);margin:0 0 6px}
-.spacer{height:90svh}
-/* Glow overlay */
-.canvas-wrap::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 70% 30%,rgba(104,74,255,.25),transparent 60%),radial-gradient(60% 60% at 30% 60%,rgba(92,173,255,.2),transparent 60%)}
+
+:root{--bg:#0b0f14;--ink:#b7c7e6;--muted:#7f8aa8;--accent1:#73a3ff;--accent2:#b07cff;--glow:0 0 40px rgba(115,163,255,.35)}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:radial-gradient(1200px 700px at 70% -10%, #132133 0%, transparent 60%), var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji}
+a{color:inherit;text-decoration:none}
+.header{position:sticky;top:0;backdrop-filter: blur(10px); background: rgba(7,10,15,.4); border-bottom: 1px solid rgba(255,255,255,.06); z-index: 10}
+.container{max-width:1100px;margin:0 auto;padding:18px 16px}
+.logo{display:flex;gap:10px;align-items:center;font-weight:700}
+.badge{width:36px;height:36px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,#6aa2ff,#a47dff); color:white; font-weight:800; box-shadow: var(--glow)}
+.grid{display:grid;grid-template-columns:1.2fr .9fr; gap:28px; align-items:center}
+h1{font-size: clamp(28px, 6vw, 54px); line-height:1.05; margin:16px 0}
+h1 .a{color:#a8c4ff} h1 .b{color:#c5a7ff}
+p{color:var(--muted);font-size:18px}
+.cta{display:flex;gap:12px;margin:20px 0 8px}
+.btn{padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.03)}
+.btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:#07111d; font-weight:700; box-shadow: var(--glow)}
+.pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.pill{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.08);color:#b8c7e6;background:rgba(255,255,255,.02)}
+.canvas-wrap{height:70vh; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.06); background: radial-gradient(800px 500px at 40% 0%, rgba(140,160,255,.08), transparent 60%)}
+.note{font-size:14px;color:#95a1bf;margin-top:8px}
+.footer{opacity:.7;text-align:center;margin:30px 0 60px}
