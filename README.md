@@ -1,14 +1,10 @@
-# WEB X — Particle Morph (Vite + React + R3F)
 
-- Particules **rondes lumineuses** (blanc/jaune) avec **Additive blending** + effet *twinkle*.
-- **Morph scroll** : nuage d’énergie ⇄ silhouette humanoïde procédurale (points).
+# WEB X — Vite + React + Particles Morph
+
+- Canvas 3D avec particules rondes dorées (effet lumière) qui morphent **nuage ⇄ humanoïde** au scroll.
+- Site complet (sections, nav, boutons).
 
 ## Scripts
-
-```bash
-npm i
-npm run dev
-npm run build
-```
-
-Déployable tel quel sur Vercel (Framework: Vite). Le build statique est dans `dist/`.
+- `npm run dev`
+- `npm run build` → sort dans `dist`
+- `npm run preview`
