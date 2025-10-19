@@ -1,8 +1,7 @@
 {
-  "name": "webx-particle-morph",
-  "version": "1.0.0",
+  "name": "webx-vite-final",
   "private": true,
-  "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,9 +10,9 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "three": "^0.160.0",
     "@react-three/fiber": "^8.15.14",
-    "@react-three/drei": "^9.108.3",
-    "three": "^0.160.0"
+    "@react-three/drei": "^9.97.3"
   },
   "devDependencies": {
     "vite": "^5.4.2",
