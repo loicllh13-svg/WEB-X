@@ -1,19 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WEB X — Studios</title>
-  <meta name="description" content="Sites vitrines modernes ou expériences 3D/WebGL avec interactions. Design soigné et performances au rendez-vous."/>
-  <link rel="stylesheet" href="/styles.css" />
-  <!-- Three.js via CDN (no build needed) -->
-  <script defer src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script defer src="/js/app.js"></script>
+  <meta name="description" content="Sites 3D/WebGL modernes et immersifs.">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand"><span class="badge">WX</span> <strong>WEB X</strong> — Studios</div>
-    <nav class="nav">
+  <header class="nav">
+    <div class="brand">
+      <span class="badge">WX</span>
+      <strong>WEB X</strong>
+      <em>— Studios</em>
+    </div>
+    <nav class="links">
       <a href="#services">Services</a>
       <a href="#methode">Méthode</a>
       <a href="#projets">Projets</a>
@@ -21,50 +23,52 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hint">Défilez pour morph <b>Énergie ⇄ Humanoïde</b></div>
-    <canvas id="hero-canvas" aria-label="Animation de particules"></canvas>
-    <div class="hero-copy">
-      <h1>Créons votre <span class="accent">univers web</span> immersif</h1>
-      <p>Sites vitrines modernes ou expériences <b>3D/WebGL</b> avec interactions. Design soigné et performances au rendez-vous.</p>
+  <section class="hero" id="hero">
+    <div class="hero-overlay">
+      <p class="hint">Défilez pour morph <strong>Énergie</strong> ⇄ <strong>Humanoïde</strong></p>
+      <h1>Créons votre <span class="gradient">univers web</span> immersif</h1>
+      <p class="subtitle">Sites vitrines modernes ou expériences <strong>3D/WebGL</strong> avec interactions. Design soigné et performances au rendez-vous.</p>
       <div class="actions">
         <a class="btn primary" href="#demos">Voir des démos</a>
-        <a class="btn ghost" href="mailto:contact@webx.example">Parler de votre projet</a>
+        <a class="btn outline" href="mailto:contact@webx.example">Parler de votre projet</a>
       </div>
-      <div class="chips">
+      <div class="pills">
         <span>Performant</span><span>Sécurisé</span><span>Responsive</span>
       </div>
     </div>
+
+    <!-- Canvas container -->
+    <div id="webgl-wrap">
+      <canvas id="stage"></canvas>
+    </div>
   </section>
 
-  <main class="content">
-    <section id="services">
-      <h2>Nos services</h2>
-      <p>Chaque projet est réalisé sur mesure. Les tarifs se font sur devis uniquement.</p>
+  <main id="content">
+    <section id="services" class="section">
+      <h2>Services</h2>
       <ul class="grid">
-        <li><h3>3D / WebGL</h3><p>Expériences en temps réel optimisées mobile & desktop.</p></li>
-        <li><h3>Sites vitrines</h3><p>Design haut de gamme, animations fluides.</p></li>
-        <li><h3>Intégrations</h3><p>CRM, analytics, formulaires, SEO technique.</p></li>
+        <li>Sites 3D / WebGL</li>
+        <li>Sites vitrines haut de gamme</li>
+        <li>UX / UI Design</li>
+        <li>Optimisation performance</li>
       </ul>
     </section>
 
-    <section id="methode">
+    <section id="methode" class="section">
       <h2>Méthode</h2>
-      <ol class="steps">
-        <li>Brief & objectifs</li>
-        <li>Prototype & visuels</li>
-        <li>Développement</li>
-        <li>Tests & performance</li>
-        <li>Lancement & suivi</li>
-      </ol>
+      <p>Process clair, sprint court, versions fréquentes et tests sur appareils réels.</p>
     </section>
 
-    <section id="projets">
+    <section id="projets" class="section">
       <h2>Projets</h2>
-      <p>Exemples à venir.</p>
+      <p>Études de cas bientôt disponibles.</p>
     </section>
+
+    <footer class="footer">© WEB X — Studios</footer>
   </main>
 
-  <footer class="footer">© WEB X — Studios</footer>
+  <!-- Three.js (CDN) -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

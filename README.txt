@@ -1,14 +1,16 @@
-WEB X — Correctifs Vite/Vercel (ESM) — 2025-10-19T19:21:49.820468Z
+# WEB X — Static (Three.js)
 
-Ce ZIP contient 3 fichiers pour corriger l'erreur Vercel `[vite]: Rollup failed to resolve import` :
-1) package.json  -> ajoute `"type": "module"` et scripts Vite
-2) vite.config.mjs -> configuration ESM (Vercel préfère .mjs)
-3) vercel.json   -> indique buildCommand/outputDirectory et Node 18
+Version **sans build** (HTML/CSS/JS uniquement) — compatible Vercel + GitHub.
 
-👉 Utilisation (iPhone/Safari) :
-- Décompresse/importe ces 3 fichiers à la racine de TON projet (là où se trouvent `index.html` et le dossier `src/`).
-- Remplace les fichiers existants s’ils portent le même nom.
-- Ne touche pas à ton dossier `src/` ou `public/`.
-- Relance le déploiement sur Vercel (Re-deploy).
+## Structure
+- `index.html` — page d'accueil + section héros
+- `styles.css` — styles
+- `js/app.js` — nuage de particules -> morph humanoïde (Three.js via CDN)
+- `vercel.json` — optionnel (clean URLs)
 
-Si tu veux que je t’en fasse une variante pour React/three.js avec dépendances R3F, dis “fais la version R3F”.
+## Déploiement
+1) Ajoutez tous les fichiers à la racine du repository GitHub.
+2) Dans Vercel, framework **Other**, Root `/`, et laissez `Build Command` vide (static). 
+3) Déployez.
+
+Sur mobile iOS, l'animation se masque **après** la section héros (option 2).
